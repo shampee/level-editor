@@ -1,6 +1,8 @@
 #include <dirent.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <unistd.h>
+#include <sys/stat.h>
 //#include <SDL2/SDL.h>
 //#include <SDL2/SDL_image.h>
 //#include <SDL2/SDL_ttf.h>
@@ -990,6 +992,8 @@ bool createNewMap(Editor *e, Level l, const char *filename)
 
     bool success = true;
 
+    if (access("maps", F_OK) != 0)
+        mkdir("maps", 0700);
     char file[256] = "maps/";
     strncat(file, filename, 256 - strlen(filename));
 
