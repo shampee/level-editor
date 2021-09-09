@@ -4,3 +4,4 @@
 !SDL_FontCache.c
 !SDL_FontCache.h
 !Makefile
+!.clang-format
